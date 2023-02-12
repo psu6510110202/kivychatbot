@@ -42,6 +42,18 @@ MDScreen:
                             size: self.size
                             pos: self.pos
                             radius: [23, 23, 23, 23]
+                    TextInput:
+                        font_name: "Poppins-Regular.ttf"
+                        hint_text: "Type your message..."
+                        size_hint: 1, None
+                        pos_hint: {"center_x": .5, "center_y": .5}
+                        font_size: "18sp"
+                        height: self.minimum_height
+                        cursor_color: 1, 170/255, 23/255, 1
+                        cursor_width: "2sp"
+                        foreground_color: 1, 170/255, 23/255, 1
+                        background_color: 0,0,0,0
+                        padding: 15
                 MDIconButton:
                     icon: "send"
                     pos_hint: {"center_x": .91, "center_y": .5}
