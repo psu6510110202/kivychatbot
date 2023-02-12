@@ -16,14 +16,19 @@ MDScreen:
                 theme_text_color: "Custom"
                 text_color: 53/255, 56/255, 60/255, 1
         MDFloatLayout:
-            BoxLayout:
-                orientation: "vertical"
-                size: (root.width, root.height)
-                height: self.minimum_height
-                size_hint: None, None
-                pos_hint: {"top": 10}
-                cols: 1
-                spacing: 5
+            ScrollView:
+                size_hint_y: .77
+                pos_hint: {"x": 0, "y": .116}
+                do_scroll_x: False
+                do_scroll_y: True
+                BoxLayout:
+                    orientation: "vertical"
+                    size: (root.width, root.height)
+                    height: self.minimum_height
+                    size_hint: None, None
+                    pos_hint: {"top": 10}
+                    cols: 1
+                    spacing: 5
             MDFloatLayout:
                 md_bg_color: 245/255, 245/255, 245/255, 1
                 size_hint_y: .11
