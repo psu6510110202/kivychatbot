@@ -2,6 +2,7 @@ from kivymd.app import MDApp
 from kivy.lang import Builder
 from kivy.core.window  import Window
 from kivy.uix.screenmanager import ScreenManager
+from kivy.core.text import LabelBase
 
 Window.size = (350, 550)
 
@@ -18,4 +19,5 @@ class ChatBot(MDApp):
         return screen_manager
 
 if __name__ == '__main__':
+    LabelBase.register(name="Poppins", fn_regular="Poppins-Regular.ttf")
     ChatBot().run()
