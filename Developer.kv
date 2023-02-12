@@ -1,0 +1,105 @@
+#:kivy 2.1.0
+
+MDScreen:
+    name: "developers"
+    MDFloatLayout:
+        MDFloatLayout:
+            md_bg_color: 245/255, 245/255, 245/255, 1
+            size_hint_y: .11
+            pos_hint: {"center_y": .95}
+            MDLabel:
+                text: "Developers"
+                font_name: "Poppins"
+                font_size: "28sp"
+                pos_hint: {"center_y": .5}
+                halign: "center"
+                theme_text_color: "Custom"
+                text_color: 53/255, 56/255, 60/255, 1
+            MDIconButton:
+                icon: "Back.png"
+                pos_hint: {"center_x": .1, "center_y": .5}
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = "main"
+        MDFloatLayout:
+            MDFloatLayout:
+                MDBoxLayout:
+                    canvas:
+                        Color:  
+                            rgb: 1, 1, 1
+                        Ellipse:
+                            pos: 15,  350
+                            size: 120 , 120 
+                            source: 'Sola.png'
+                            angle_start: 0
+                            angle_end: 360
+                MDFloatLayout:
+                    size_hint: .50, .08
+                    pos_hint: {"center_x": .70, "center_y": .75}
+                    canvas:
+                        Color:
+                            rgb: (1, 170/255, 23/255, 1)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [22, 22, 22, 22]
+                MDLabel:
+                    text: "Sola Phaiboonsombat\n6510110119"
+                    halign: "left"
+                    pos_hint: {"center_x": .99, "center_y": .75}
+                    font_name: "Poppins"
+                    font_size: "12sp"
+            MDFloatLayout:
+                MDBoxLayout:
+                    canvas:
+                        Color:  
+                            rgb: 1, 1, 1
+                        Ellipse:
+                            pos: 15,  200
+                            size: 120 , 120 
+                            source: 'Tanthai.png'
+                            angle_start: 0
+                            angle_end: 360
+                MDFloatLayout:
+                    size_hint: .50, .08
+                    pos_hint: {"center_x": .70, "center_y": .47}
+                    canvas:
+                        Color:
+                            rgb: (1, 170/255, 23/255, 1)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [22, 22, 22, 22]
+                MDLabel:
+                    text: "Thanutham Tuktian\n6510110166"
+                    halign: "left"
+                    pos_hint: {"center_x": .99, "center_y": .47}
+                    font_name: "Poppins"
+                    font_size: "12sp"
+            MDFloatLayout:
+                MDBoxLayout:
+                    canvas:
+                        Color:  
+                            rgb: 1, 1, 1
+                        Ellipse:
+                            pos: 15, 45
+                            size: 120 , 120 
+                            source: 'Moddam.png'
+                            angle_start: 0
+                            angle_end: 360
+                MDFloatLayout:
+                    size_hint: .50, .08
+                    pos_hint: {"center_x": .70, "center_y": .18}
+                    canvas:
+                        Color:
+                            rgb: (1, 170/255, 23/255, 1)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [22, 22, 22, 22]
+                MDLabel:
+                    text: "Tharakorn Chalayonkupt\n6510110202"
+                    halign: "left"
+                    pos_hint: {"center_x": .99, "center_y": .18}
+                    font_name: "Poppins"
+                    font_size: "12sp"
