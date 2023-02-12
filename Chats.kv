@@ -47,6 +47,12 @@ MDScreen:
                 halign: "center"
                 theme_text_color: "Custom"
                 text_color: 53/255, 56/255, 60/255, 1
+            MDIconButton:
+                icon: "Back.png"
+                pos_hint: {"center_x": .1, "center_y": .5}
+                on_release:
+                    root.manager.transition.direction = 'right'
+                    root.manager.current = "main"
         MDFloatLayout:
             ScrollView:
                 size_hint_y: .77
