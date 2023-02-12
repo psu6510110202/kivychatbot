@@ -2,6 +2,7 @@
 
 MDScreen:
     name: "main"
+    bot_name: bot_name
     MDFloatLayout:
         md_bg_color: 1, 1, 1, 1
         Image:
@@ -45,6 +46,7 @@ MDScreen:
                     pos: self.pos
                     radius: [22, 22, 22, 22]
             TextInput:
+                id: bot_name
                 hint_text: "Chatbot Name"
                 size_hint: 1, None
                 pos_hint: {"center_x": .5, "center_y":.5}
@@ -71,8 +73,7 @@ MDScreen:
             pos_hint: {"center_x": .5, "center_y": .1}
             background_color: 0,0,0,0
             on_release:
-                root.manager.transition.direction = 'left'
-                root.manager.current = "chats"
+                app.bot_name()
         
         MDLabel:
             text: "LET'S CHAT"

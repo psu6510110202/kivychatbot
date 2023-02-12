@@ -35,6 +35,11 @@ class ChatBot(MDApp):
         screen_manager.add_widget(Builder.load_file('Chats.kv'))
         return screen_manager
 
+    def bot_name(self):
+        if screen_manager.get_screen('main').bot_name.text != "":
+            screen_manager.get_screen('chats').bot_name.text = screen_manager.get_screen('main').bot_name.text
+            screen_manager.current = 'chats'
+
     def response(self, *args):
         response = ""
         completion = openai.Completion.create(
