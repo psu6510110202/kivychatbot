@@ -1,13 +1,44 @@
 #:kivy 2.1.0
 
+<Command>
+    size_hint_y:None
+    pos_hint: {"right": .98}
+    height : self.texture_size[1]
+    padding : 12,10
+    theme_text_color : "Custom"
+    text_color: 1,1,1,1
+    canvas.before:
+        Color:
+            rgb: (1, 170/255, 23/255, 1)
+        RoundedRectangle:
+            size : self.size
+            pos : self.pos
+            radius : [23, 23, 0, 23]
+<Response>
+    size_hint_y: None
+    pos_hint: {"x": .02}
+    height : self.texture_size[1]
+    padding : 12,10
+    canvas.before:
+        Color:
+            rgb: (1, 1, 1, 1)
+        RoundedRectangle:
+            size : self.width, self.height
+            pos : self.pos
+            radius : [23, 23, 23, 0]
+
 MDScreen:
     name: "chats"
+    text_input: text_input
+    chat_list: chat_list
+    
     MDFloatLayout:
         MDFloatLayout:
             md_bg_color: 245/255, 245/255, 245/255, 1
             size_hint_y: .11
             pos_hint: {"center_y": .95}
             MDLabel:
+                id: bot_name
                 text: "My AI"
                 font_name: "Poppins"
                 font_size: "25sp"
@@ -22,6 +53,7 @@ MDScreen:
                 do_scroll_x: False
                 do_scroll_y: True
                 BoxLayout:
+                    id: chat_list
                     orientation: "vertical"
                     size: (root.width, root.height)
                     height: self.minimum_height
@@ -43,6 +75,7 @@ MDScreen:
                             pos: self.pos
                             radius: [23, 23, 23, 23]
                     TextInput:
+                        id: text_input
                         font_name: "Poppins"
                         hint_text: "Type your message..."
                         size_hint: 1, None
@@ -61,3 +94,4 @@ MDScreen:
                     theme_text_color: "Custom"
                     text_color: 1, 1, 1, 1
                     md_bg_color: 1, 170/255, 23/255, 1
+                    on_release : app.send()
