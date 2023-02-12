@@ -63,6 +63,14 @@ MDScreen:
                     size: self.size
                     pos: self.pos
                     radius: [22, 22, 22, 22]
+        Button:
+            text:''
+            size_hint: .45, .08
+            pos_hint: {"center_x": .5, "center_y": .1}
+            background_color: 0,0,0,0
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = "chats"
         
         MDLabel:
             text: "LET'S CHAT"
