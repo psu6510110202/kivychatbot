@@ -5,6 +5,10 @@ from kivy.uix.screenmanager import ScreenManager
 from kivy.core.text import LabelBase
 from kivy.properties import StringProperty, NumericProperty
 from kivymd.uix.label import MDLabel
+from kivy.clock import Clock
+import openai
+
+openai.api_key = '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'
 
 Window.size = (350, 550)
 
@@ -31,6 +35,19 @@ class ChatBot(MDApp):
         screen_manager.add_widget(Builder.load_file('Chats.kv'))
         return screen_manager
 
+    def response(self, *args):
+        response = ""
+        completion = openai.Completion.create(
+            engine="text-davinci-003", 
+            prompt=value, 
+            temperature=0.5,
+            max_tokens=1024,
+            n=1,
+            stop=None
+        )
+        response = completion.choices[0].text
+        screen_manager.get_screen('chats').chat_list.add_widget(Response(text=response,size_hint_x = .75, halign=halign, font_name="Poppins",))
+
     def send(self):
         global size, halign, value
         if screen_manager.get_screen('chats').text_input != "":
@@ -54,7 +71,8 @@ class ChatBot(MDApp):
                 size = .77
                 halign = "left"
             screen_manager.get_screen('chats').chat_list.add_widget(Command(text=value,size_hint_x = size, halign=halign, font_name="Poppins",))
-
+            Clock.schedule_once(self.response, 2)
+            screen_manager.get_screen('chats').text_input.text = ""
 
 if __name__ == '__main__':
     LabelBase.register(name="Poppins", fn_regular="Poppins-Regular.ttf")
