@@ -27,7 +27,7 @@ MDScreen:
             theme_text_color: "Custom"
             text_color: 53/255, 56/255, 60/255, 1
         MDLabel:
-            text: "Read me First"
+            text: "Developer"
             font_name: "Poppins"
             font_size: "18sp"
             pos_hint: {"center_x": .5, "center_y": .33}
@@ -35,6 +35,15 @@ MDScreen:
             underline: "True"
             theme_text_color: "Custom"
             text_color: 1, 170/255, 23/255, 1
+        Button:
+            text:''
+            size_hint: .45, .08
+            pos_hint: {"center_x": .5, "center_y": .33}
+            background_color: 0,0,0,0
+            on_release:
+                root.manager.transition.direction = 'left'
+                root.manager.current = "developers"
+
         MDFloatLayout:
             size_hint: .85, .08
             pos_hint: {"center_x": .5, "center_y": .22}
